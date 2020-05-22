@@ -24,9 +24,9 @@ import com.example.test.spring.crud.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 /* To enable CORS on the server */
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "**") // 
 @RestController
-@RequestMapping("/api/test")
+@RequestMapping("/api/test") // This means URL's start with /api/test (after Application path)
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -45,10 +45,10 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employee);
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/employees") // Map ONLY POST Requests
     public Employee createEmployee(@Valid @RequestBody Employee employee) {
         return employeeRepository.save(employee);
-   
+       
     }
 
     @PutMapping("/employees/{id}")
