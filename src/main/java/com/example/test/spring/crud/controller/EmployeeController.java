@@ -24,7 +24,7 @@ import com.example.test.spring.crud.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 /* To enable CORS on the server */
-@CrossOrigin(origins = "**") // 
+@CrossOrigin(origins = "*") // 
 @RestController
 @RequestMapping("/api/test") // This means URL's start with /api/test (after Application path)
 public class EmployeeController {
