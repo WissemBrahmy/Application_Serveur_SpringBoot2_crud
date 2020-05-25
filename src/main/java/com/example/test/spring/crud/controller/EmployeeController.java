@@ -45,6 +45,12 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employee);
     }
   
+    @GetMapping(value = "employees/search/{department}")
+    public List<Employee> findByDepartment(@PathVariable String department) {
+   
+      return employeeRepository.findByDepartment(department);
+      
+    }
     
     @PostMapping("/employees") // Map ONLY POST Requests
     public Employee createEmployee(@Valid @RequestBody Employee employee) {
