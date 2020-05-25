@@ -16,7 +16,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String emailId;
-
+    private String department;
     public Employee() {
 
     }
@@ -25,6 +25,7 @@ public class Employee {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
+        this.department = department;
     }
 
     @Id
@@ -59,11 +60,19 @@ public class Employee {
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
+    
+    @Column(name = "department", nullable = false)
+    public String getDepartment() {
+        return department;
+    }
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
     @Override
     public String toString() {
-        return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
-                + "]";
+        return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId +
+                ", department=" + department + "]";
     }
 
 }

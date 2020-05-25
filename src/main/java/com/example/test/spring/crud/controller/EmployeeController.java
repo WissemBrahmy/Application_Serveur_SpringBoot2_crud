@@ -44,7 +44,8 @@ public class EmployeeController {
                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
         return ResponseEntity.ok().body(employee);
     }
-
+  
+    
     @PostMapping("/employees") // Map ONLY POST Requests
     public Employee createEmployee(@Valid @RequestBody Employee employee) {
         return employeeRepository.save(employee);
@@ -57,7 +58,7 @@ public class EmployeeController {
          
     Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
-
+    	employee.setDepartment(employeeDetails.getDepartment());
         employee.setEmailId(employeeDetails.getEmailId());
         employee.setLastName(employeeDetails.getLastName());
         employee.setFirstName(employeeDetails.getFirstName());
